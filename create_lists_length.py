@@ -1,3 +1,9 @@
+"""
+Creactes random lists from list.txt and divides into list_train.txt and list_val.txt
+
+Before splitting into two lists, it sorts main list by length of files, so the longest files are in validation sets, making this script deterministic 
+"""
+
 from pathlib import Path
 from pydub import AudioSegment
 from operator import itemgetter
