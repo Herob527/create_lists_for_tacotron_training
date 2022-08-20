@@ -2,6 +2,7 @@ use std::fs::File;
 use std::io::{self, BufRead, Write};
 use std::path::{Path, PathBuf};
 
+// Structure containing audio data needed further for sorting
 struct AudioFileData {
     audio_path: PathBuf,
     text: String,
@@ -53,14 +54,6 @@ fn main() {
             let complete_line = format!("{}|{}\n", wav.as_path().display(), text);
             val_file_handler.write_all(complete_line.as_bytes()).expect("Error while writing data into list_val.txt");            
         }
-        /*
-        for train_data_line in train_data {
-            train_file_handler.write_all(train_data_line.as_bytes()).expect("Error while writing data into list_train.txt");
-        }
-        for val_data_line in val_data {
-            val_file_handler.write_all(val_data_line.as_bytes()).expect("Error while writing data into list_val.txt");
-        }
-        */
     }
 }
 
@@ -73,7 +66,6 @@ where
 }
 
 fn calculate_wav_length(wav: &PathBuf) -> f64 {
-    // let buf_input_file = BufReader::new(File::open(wav).unwrap());
     let mut input_file: File = File::open(wav).unwrap();
     let file_size: f64 = input_file.metadata().unwrap().len() as f64;
 
