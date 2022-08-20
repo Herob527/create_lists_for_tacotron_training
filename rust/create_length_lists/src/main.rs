@@ -1,3 +1,9 @@
+/*
+This program divides file list.txt into list_train.txt and list_val.txt.
+
+Before inserting values, it sorts by audio length to ensure the longest files are in validation set
+*/
+
 use std::fs::File;
 use std::io::{self, BufRead, Write};
 use std::path::{Path, PathBuf};
